@@ -12,6 +12,20 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	if (!str)
+		return ;
+	i = 0;
+	while (str[i])
+	{
+		write (1, &str[i], 1);
+		i++;
+	}
+}
+
 char	*ft_strjoin_v3(char *s1, char *s2)
 {
 	size_t		i;
