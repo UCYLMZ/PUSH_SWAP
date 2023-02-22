@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int	check_doubles(int *arr, int size)
+int	check_doubles(int **arr, int size)
 {
 	int	i;
 	int	j;
@@ -11,7 +11,7 @@ int	check_doubles(int *arr, int size)
 		j = i + 1;
 		while (j < size)
 		{
-			if (arr[i] == arr[j])
+			if (*(arr[i]) == *(arr[j]))
 			{
 				ft_putstr("*** The arguments must not repeat!\n");
 				return (1);
@@ -23,25 +23,31 @@ int	check_doubles(int *arr, int size)
 	return (0);
 }
 
-int *to_arr(char *str, int *size)
+int **to_arr(char *str, int *size)
 {
 	char	**d_str;
-	int		*arr;
+	int		**arr;
 	int		i;
 
 	d_str = ft_split(str, ' ');
 	*size = 0;
 	while (d_str[*size])
 		(*size)++;
-	arr = malloc(sizeof(int) * (*size));
+	if (*size == 1)
+		exit (1);
+	arr = malloc(sizeof(int *) * (*size));
 	if (!arr)
 		return (NULL);
 	i = 0;
 	while (d_str[i])
 	{
-		arr[i] = ft_atoi(d_str[i]);
+		arr[i] = malloc(sizeof(int));
+		if (!arr[i])
+			return (NULL);
+		*(arr[i]) = ft_atoi(d_str[i]);
 		i++;
 	}
+	free_double_char(d_str);
 	return (arr);
 }
 
@@ -52,9 +58,11 @@ int	char_check(char *d)
 	result = 1;
 	while (*d)
 	{
-		if ((*d < '0' || *d > '9') && (*d != ' ' && result % 2 != 0) && (*d != '+' && *d != '-'))
+		if ((*d < '0' || *d > '9') && (*d != ' '
+			&& result % 2 != 0) && (*d != '+' && *d != '-'))
 			result *= 2;
-		if ((*d == '-' || *d == '+') && (*(d + 1) <= '0' || *(d + 1) > '9') && result % 3 != 0)
+		if ((*d == '-' || *d == '+') && (*(d + 1) <= '0'
+			|| *(d + 1) > '9') && result % 3 != 0)
 			result *= 3;
 		d++;
 	}

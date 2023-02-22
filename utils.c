@@ -74,10 +74,11 @@ int	ft_atoi(const char *str)
 	while (str[i] >= '0' && str[i] <= '9' && str[i])
 	{
 		result = result * 10 + (str[i] - 48) * sign;
-		if (result > 2147483647)
-			return (-1);
-		if (result < -2147483648)
-			return (0);
+		if (result > 2147483647 || result < -2147483648)
+		{
+			ft_putstr("*** All numbers must be in integer value range!\n");
+			exit (1);
+		}
 		i++;
 	}
 	return ((int)result);
