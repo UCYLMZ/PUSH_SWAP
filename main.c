@@ -21,6 +21,8 @@ int	main(int ac, char **av)
 	if (check_doubles(data_arr, size))
 		return (1);
 	stack_a = list_initializer(size, data_arr);
-	sorter(stack_a);
+	if (!stack_a)
+		return (2);
+	sort_init(stack_a, size);
 	//system("leaks a.out");
 }

@@ -52,11 +52,20 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 t_list	*list_initializer(int size, int **arr)
 {
 	t_list	*lst;
+	t_list	*new;
 	int		i;
 
 	i = 0;
 	lst = NULL;
 	while (i < size)
-		ft_lstadd_back(&lst, ft_lstnew(arr[i++]));
+	{
+		new = ft_lstnew(arr[i++]);
+		if (!new)
+		{
+			ft_lstclear(&lst);
+			return (NULL);
+		}
+		ft_lstadd_back(&lst, new);
+	}
 	return (lst);
 }

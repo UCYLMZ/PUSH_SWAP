@@ -10,6 +10,16 @@ typedef struct s_list
 	struct s_list	*next;
 }	t_list;
 
+struct	s_data
+{
+	t_list	*stack_a;
+	t_list	*stack_b;
+	int		size_a;
+	int		size_b;
+	int		min_b;
+	int		max_b;
+}	t_data;
+
 char	*all_in_one(int count, char **values);
 char	*ft_strjoin_v3(char *s1, char *s2);
 int		ft_atoi(const char *str);
@@ -21,7 +31,7 @@ void	free_double_char(char **ptr);
 int		check_doubles(int **arr, int size);
 t_list	*list_initializer(int size, int **arr);
 void	ft_lstclear(t_list **lst);
-void	sorter(t_list *stack_a);
+void	sort_init(t_list *list, int size);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	sa(t_list **stack_a);

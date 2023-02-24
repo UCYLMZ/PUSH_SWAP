@@ -6,10 +6,16 @@ void	pb(t_list **stack_a, t_list **stack_b)
 
 	if (!(*stack_a))
 		return ;
+	if ((*(*stack_a)->content > t_data.max_b))
+		t_data.max_b = *(*stack_a)->content;
+	if ((*(*stack_a)->content < t_data.min_b))
+		t_data.min_b = *(*stack_a)->content;
 	temp = (*stack_a)->next;
 	(*stack_a)->next = *stack_b;
 	*stack_b = *stack_a;
 	(*stack_a) = temp;
+	t_data.size_a -= 1;
+	t_data.size_b += 1;
 }
 
 void	pa(t_list **stack_a, t_list **stack_b)
@@ -22,6 +28,8 @@ void	pa(t_list **stack_a, t_list **stack_b)
 	(*stack_b)->next = *stack_a;
 	*stack_a = *stack_b;
 	(*stack_b) = temp;
+	t_data.size_a += 1;
+	t_data.size_b -= 1;
 }
 
 void	sa(t_list **stack_a)
