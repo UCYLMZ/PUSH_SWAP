@@ -23,7 +23,7 @@ int	check_doubles(int **arr, int size)
 	return (0);
 }
 
-int **to_arr(char *str, int *size)
+int	**to_arr(char *str, int *size)
 {
 	char	**d_str;
 	int		**arr;

@@ -18,6 +18,9 @@ struct	s_data
 	int		size_b;
 	int		min_b;
 	int		max_b;
+	int		target;
+	int		coast_b;
+	int		coast_a;
 }	t_data;
 
 char	*all_in_one(int count, char **values);
