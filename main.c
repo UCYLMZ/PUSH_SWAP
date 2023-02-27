@@ -24,5 +24,6 @@ int	main(int ac, char **av)
 	if (!stack_a)
 		return (2);
 	sort_init(stack_a, size);
+	//is_it_first(5, t_data.stack_b);
 	//system("leaks a.out");
 }

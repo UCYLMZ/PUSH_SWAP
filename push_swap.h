@@ -14,13 +14,21 @@ struct	s_data
 {
 	t_list	*stack_a;
 	t_list	*stack_b;
+
 	int		size_a;
 	int		size_b;
+
 	int		min_b;
 	int		max_b;
+
 	int		target;
-	int		coast_b;
-	int		coast_a;
+
+	int		index_a;
+	int		index_b;
+
+	int		cost_a;
+	int		cost_b;
+	int		all_cost;
 }	t_data;
 
 char	*all_in_one(int count, char **values);
@@ -46,5 +54,8 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
+void	is_it_first(int a, t_list *stack_b);
+int		ft_abs(int a);
+void	decider(int target);
 
 #endif
