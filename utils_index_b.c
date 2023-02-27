@@ -1,11 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_index_b.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 10:03:28 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/02/27 17:54:10 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_abs(int a)
-{
-	if (a < 0)
-		return (a * -1);
-	return (a);
-}
+#include "push_swap.h"
 
 void	find_where(int a, t_list *stack_b)
 {
@@ -66,9 +71,6 @@ void	is_it_first(int a, t_list *stack_b)
 
 void	decider(int target)
 {
-	// printf("target:%d\n", target);
-	// printf("index_a:%d\n", t_data.index_a);
-	// printf("index_b:%d\n", t_data.index_b);
 	int	current_cost_a;
 	int	current_cost_b;
 
@@ -86,13 +88,34 @@ void	decider(int target)
 		t_data.target = target;
 		t_data.cost_a = current_cost_a;
 		t_data.cost_b = current_cost_b;
-		// printf("all_cost:%d\n", t_data.all_cost);
-		// printf("cost_on_a:%d\n", t_data.cost_a);
-		// printf("cost_on_b:%d\n", t_data.cost_b);
-		// printf("target:%d\n", t_data.target);
-		// printf("\n");
 	}
-	// printf("current_cost_a:%d\n", current_cost_a);
-	// printf("current_cost_b:%d\n", current_cost_b);
-	// printf("\n");
+}
+
+void	get_biggest_top(void)
+{
+	t_list	*biggest;
+	int		i;
+
+	biggest = t_data.stack_b;
+	while (*(biggest->content) != t_data.max_b)
+	{
+		biggest = biggest->next;
+		i++;
+	}
+	if (i < t_data.size_b - i)
+	{
+		while (*(t_data.stack_b->content) != t_data.max_b)
+		{
+			rb(&t_data.stack_b);
+			ft_putstr("rb\n");
+		}
+	}
+	else
+	{
+		while (*(t_data.stack_b->content) != t_data.max_b)
+		{
+			rrb(&t_data.stack_b);
+			ft_putstr("rrb\n");
+		}
+	}
 }
