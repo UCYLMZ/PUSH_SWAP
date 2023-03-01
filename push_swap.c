@@ -67,7 +67,7 @@ void	prepare_both(void)
 			t_data.cost_b++;
 		}
 	}
-	if (t_data.cost_a > 0 && t_data.cost_b > 0)
+	else if (t_data.cost_a > 0 && t_data.cost_b > 0)
 	{
 		while (t_data.cost_a > 0 && t_data.cost_b > 0)
 		{
@@ -105,19 +105,19 @@ void	sort_init(t_list *list, int size)
 	t_data.size_a = size;
 	t_data.max_b = -2147483648;
 	t_data.min_b = 2147483647;
-	pb(&t_data.stack_a, &t_data.stack_b);
-	pb(&t_data.stack_a, &t_data.stack_b);
-	while (t_data.stack_a)
-		push_swap();
-	get_biggest_top();
+	if (is_list_sorted(list))
+		return ;
+	if (t_data.size_a < 6)
+		low_size_handler(t_data.stack_a);
+	else
+	{
+		pb(&t_data.stack_a, &t_data.stack_b);
+		pb(&t_data.stack_a, &t_data.stack_b);
+		while (t_data.stack_a)
+			push_swap();
+	}
+	if (t_data.stack_b)
+		get_biggest_top();
 	while (t_data.stack_b)
 		pa(&t_data.stack_a, &t_data.stack_b);
-	//t_list *ptr = t_data.stack_a;
-	// while (ptr)
-	// {
-	// 	printf("a: %d  ", *(ptr->content));
-	// 	ptr = ptr->next;
-	// }
-	// printf("\nbiggest:%d\n", t_data.max_b);
-	// printf("lowest:%d\n", t_data.min_b);
 }

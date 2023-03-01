@@ -20,10 +20,7 @@ int	main(int ac, char **av)
 	t_list	*stack_a;
 
 	if (ac == 1)
-	{
-		ft_putstr("Wrong Argument Count!");
 		return (1);
-	}
 	data_str = all_in_one(ac - 1, av + 1);
 	if (char_check(data_str))
 		return (1);
@@ -36,5 +33,4 @@ int	main(int ac, char **av)
 	if (!stack_a)
 		return (2);
 	sort_init(stack_a, size);
-	//system("leaks a.out");
 }

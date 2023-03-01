@@ -12,6 +12,18 @@
 
 #include "push_swap.h"
 
+void	print_error(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		write(2, &str[i], 1);
+		i++;
+	}
+}
+
 int	check_doubles(int **arr, int size)
 {
 	int	i;
@@ -25,7 +37,7 @@ int	check_doubles(int **arr, int size)
 		{
 			if (*(arr[i]) == *(arr[j]))
 			{
-				ft_putstr("*** The arguments must not repeat!\n");
+				print_error("*** The arguments must not repeat!\n");
 				return (1);
 			}
 			j++;
@@ -73,6 +85,9 @@ int	char_check(char *d)
 		if ((*d < '0' || *d > '9') && (*d != ' '
 			&& result % 2 != 0) && (*d != '+' && *d != '-'))
 			result *= 2;
+		if ((*d >= '0' && *d <= '9') && ((*(d + 1) != ' ')
+			&& (*(d + 1) < '0' || *(d + 1) > '9')))
+			result *= 3;
 		if ((*d == '-' || *d == '+') && (*(d + 1) <= '0'
 			|| *(d + 1) > '9') && result % 3 != 0)
 			result *= 3;
@@ -80,10 +95,10 @@ int	char_check(char *d)
 	}
 	if (result == 1)
 		return (0);
-	ft_putstr("Error\n");
+	print_error("Error\n");
 	if (result % 2 == 0)
-		ft_putstr("*** All arguments must be integer!\n");
+		print_error("*** All arguments must be integer!\n");
 	if (result % 3 == 0)
-		ft_putstr("*** Sign of arguments must be valid!\n");
+		print_error("*** Sign of arguments must be valid!\n");
 	return (1);
 }

@@ -88,7 +88,7 @@ int	ft_atoi(const char *str)
 		result = result * 10 + (str[i] - 48) * sign;
 		if (result > 2147483647 || result < -2147483648)
 		{
-			ft_putstr("*** All numbers must be in integer value range!\n");
+			print_error("*** All numbers must be in integer value range!\n");
 			exit (1);
 		}
 		i++;

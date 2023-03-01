@@ -49,12 +49,14 @@ int		ft_atoi(const char *str);
 char	**ft_split(const char *s, char c);
 int		char_check(char *data);
 void	ft_putstr(char *str);
+void	print_error(char *str);
 int		**to_arr(char *str, int *size);
 void	free_double_char(char **ptr);
 int		check_doubles(int **arr, int size);
 t_list	*list_initializer(int size, int **arr);
 void	ft_lstclear(t_list **lst);
 void	sort_init(t_list *list, int size);
+int		is_list_sorted(t_list *list);
 void	pb(t_list **stack_a, t_list **stack_b);
 void	pa(t_list **stack_a, t_list **stack_b);
 void	sa(t_list **stack_a);
@@ -67,8 +69,11 @@ void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
 void	is_it_first(int a, t_list *stack_b);
+void	low_size_handler(t_list *stack_a);
 int		ft_abs(int a);
 void	decider(int target);
+void	prepare_stack_a(void);
+void	prepare_stack_b(void);
 void	get_biggest_top(void);
 
 #endif
