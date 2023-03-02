@@ -71,6 +71,7 @@ void	rrr(t_list **stack_a, t_list **stack_b);
 void	is_it_first(int a, t_list *stack_b);
 void	low_size_handler(t_list *stack_a);
 int		ft_abs(int a);
+int		ft_abs_larger(int a, int b);
 void	decider(int target);
 void	prepare_stack_a(void);
 void	prepare_stack_b(void);

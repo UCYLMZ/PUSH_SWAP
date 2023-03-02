@@ -73,6 +73,7 @@ void	decider(int target)
 {
 	int	current_cost_a;
 	int	current_cost_b;
+	int	current_all_cost;
 
 	if (t_data.index_a > t_data.size_a - t_data.index_a)
 		current_cost_a = -1 * (t_data.size_a - t_data.index_a);
@@ -82,9 +83,13 @@ void	decider(int target)
 		current_cost_b = -1 * (t_data.size_b - t_data.index_b);
 	else
 		current_cost_b = t_data.index_b;
-	if (ft_abs(current_cost_a) + ft_abs(current_cost_b) < t_data.all_cost)
+	if ((current_cost_a > 0 && current_cost_b > 0) || (current_cost_a < 0 && current_cost_b < 0))
+		current_all_cost = ft_abs_larger(current_cost_a, current_cost_b);
+	else
+		current_all_cost = ft_abs(current_cost_a) + ft_abs(current_cost_b);
+	if (current_all_cost < t_data.all_cost)
 	{
-		t_data.all_cost = ft_abs(current_cost_a) + ft_abs(current_cost_b);
+		t_data.all_cost = current_all_cost;
 		t_data.target = target;
 		t_data.cost_a = current_cost_a;
 		t_data.cost_b = current_cost_b;

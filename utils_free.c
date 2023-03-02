@@ -32,3 +32,16 @@ int	ft_abs(int a)
 		return (a * -1);
 	return (a);
 }
+
+int	ft_abs_larger(int a, int b)
+{
+	int	first;
+	int	second;
+
+	first = ft_abs(a);
+	second = ft_abs(b);
+	if (first >= second)
+		return (first);
+	else
+		return (second);
+}
