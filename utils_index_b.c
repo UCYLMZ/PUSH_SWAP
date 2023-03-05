@@ -6,7 +6,7 @@
 /*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:03:28 by uyilmaz           #+#    #+#             */
-/*   Updated: 2023/02/27 17:54:10 by uyilmaz          ###   ########.fr       */
+/*   Updated: 2023/03/05 03:57:50 by uyilmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ void	decider(int target)
 		current_cost_b = -1 * (t_data.size_b - t_data.index_b);
 	else
 		current_cost_b = t_data.index_b;
-	if ((current_cost_a > 0 && current_cost_b > 0) || (current_cost_a < 0 && current_cost_b < 0))
+	if ((current_cost_a > 0 && current_cost_b > 0)
+		|| (current_cost_a < 0 && current_cost_b < 0))
 		current_all_cost = ft_abs_larger(current_cost_a, current_cost_b);
 	else
 		current_all_cost = ft_abs(current_cost_a) + ft_abs(current_cost_b);

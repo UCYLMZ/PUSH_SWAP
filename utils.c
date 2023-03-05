@@ -6,7 +6,7 @@
 /*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:03:47 by uyilmaz           #+#    #+#             */
-/*   Updated: 2023/02/27 10:03:48 by uyilmaz          ###   ########.fr       */
+/*   Updated: 2023/03/05 03:57:18 by uyilmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,8 @@ int	ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign *= -1;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9' && str[i])
 	{
