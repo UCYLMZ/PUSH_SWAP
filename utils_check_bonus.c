@@ -1,4 +1,16 @@
-#include "push_swap.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils_check.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/02/27 10:03:16 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/02/27 10:03:17 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap_bonus.h"
 
 void	print_error(char *str)
 {
@@ -25,7 +37,7 @@ int	check_doubles(int **arr, int size)
 		{
 			if (*(arr[i]) == *(arr[j]))
 			{
-				print_error("Error\n*** The arguments must not repeat!\n");
+				print_error("Error\n");
 				return (1);
 			}
 			j++;
@@ -84,9 +96,5 @@ int	char_check(char *d)
 	if (result == 1)
 		return (0);
 	print_error("Error\n");
-	if (result % 2 == 0)
-		print_error("*** All arguments must be integer!\n");
-	if (result % 3 == 0)
-		print_error("*** Sign of arguments must be valid!\n");
 	return (1);
 }

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   low_size_handler.c                                 :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 03:56:41 by uyilmaz           #+#    #+#             */
-/*   Updated: 2023/03/05 03:56:53 by uyilmaz          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "push_swap.h"
 
 int	is_list_sorted(t_list *list)
@@ -53,7 +41,7 @@ void	list_reducer(t_list *stack_a)
 	pb(&t_data.stack_a, &t_data.stack_b);
 }
 
-void	handle_three(int first, int second, int third, t_list *stack_a)
+void	handle_three(int first, int second, int third)
 {
 	while (!is_list_sorted(t_data.stack_a))
 	{
@@ -77,27 +65,18 @@ void	handle_three(int first, int second, int third, t_list *stack_a)
 
 void	low_size_handler(t_list *stack_a)
 {
-	int	arr[3];
-	int	i;
-
 	while (t_data.size_a > 3)
 		list_reducer(t_data.stack_a);
 	if (t_data.size_a == 2)
 		sa(&t_data.stack_a);
 	if (is_list_sorted(t_data.stack_a))
-		return ;
+			return ;
 	else
 	{
-		i = 0;
-		while (stack_a)
-		{
-			arr[i] = *(stack_a->content);
-			stack_a = stack_a->next;
-			i++;
-		}
 		stack_a = t_data.stack_a;
 		if (is_list_sorted(t_data.stack_a))
 			return ;
-		handle_three(arr[0], arr[1], arr[2], stack_a);
+		handle_three(*(stack_a->content), *(stack_a->next->content),
+			*(stack_a->next->next->content));
 	}
 }

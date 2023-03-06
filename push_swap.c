@@ -117,7 +117,7 @@ void	sort_init(t_list *list, int size)
 			push_swap();
 	}
 	if (t_data.stack_b)
-		get_biggest_top();
+		get_biggest_top(0);
 	while (t_data.stack_b)
 		pa(&t_data.stack_a, &t_data.stack_b);
 }

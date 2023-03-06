@@ -10,19 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-size_t	ft_strlen(const char *str)
-{
-	size_t	i;
-
-	if (!str)
-		return (0);
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
+#include "push_swap_bonus.h"
 
 void	ft_putstr(char *str)
 {
@@ -38,6 +26,24 @@ void	ft_putstr(char *str)
 	}
 }
 
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+	while (*s1 && *s2 && n)
+	{
+		if (*s1 != *s2)
+			return (0);
+		s1++;
+		s2++;
+		n--;
+	}
+	if (n == 0)
+	{
+		s1--;
+		s2--;
+	}
+	return (1);
+}
+
 char	*ft_strjoin_v3(char *s1, char *s2)
 {
 	size_t		i;
@@ -51,7 +57,8 @@ char	*ft_strjoin_v3(char *s1, char *s2)
 	}
 	if (!s2)
 		return (0);
-	result = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
+	result = malloc(sizeof(char) * (ft_strlen(s1)
+		+ ft_strlen(s2) + 2));
 	if (!result)
 		return (0);
 	i = -1;
@@ -88,7 +95,7 @@ int	ft_atoi(const char *str)
 		result = result * 10 + (str[i] - 48) * sign;
 		if (result > 2147483647 || result < -2147483648)
 		{
-			print_error("Error\n*** Numbers must be in integer value range!\n");
+			print_error("Error\n");
 			exit (1);
 		}
 		i++;
