@@ -1,15 +1,29 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main_bonus.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/06 20:14:38 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/03/07 05:47:13 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap_bonus.h"
 
 int	is_list_sorted(t_list *list)
 {
 	t_list	*next;
+	t_list	*prev;
 
+	prev = list;
 	next = list->next;
 	while (next)
 	{
-		if (*(list->content) > *(next->content))
+		if (*(prev->content) > *(next->content))
 			return (0);
-		list = list->next;
+		prev = prev->next;
 		next = next->next;
 	}
 	return (1);
@@ -37,7 +51,7 @@ void	executer(char *instruction, t_list **stack_a, t_list **stack_b)
 		sa(stack_a);
 }
 
-int	check_it(t_list *stack_a, char **instructions)
+int	check_it(t_list **stack_a, char **instructions)
 {
 	t_list	*stack_b;
 	int		i;
@@ -51,19 +65,20 @@ int	check_it(t_list *stack_a, char **instructions)
 	i = 0;
 	while (instructions[i])
 	{
-		executer(instructions[i], &stack_a, &stack_b);
+		executer(instructions[i], stack_a, &stack_b);
 		i++;
 	}
 	free_double_char(instructions);
-	if (is_list_sorted(stack_a) && !stack_b)
+	if (is_list_sorted(*stack_a) && !stack_b)
 		return (1);
+	ft_lstclear(&stack_b);
 	ft_putstr("KO\n");
 	return (0);
 }
 
 char	**get_instructions(void)
 {
-	char 	*instructions;
+	char	*instructions;
 	char	*line;
 	char	**result;
 
@@ -102,6 +117,6 @@ int	main(int ac, char **av)
 	stack_a = list_initializer(size, data_arr);
 	if (!stack_a)
 		return (2);
-	if (check_it(stack_a, instructions))
+	if (check_it(&stack_a, instructions))
 		ft_putstr("OK\n");
 }

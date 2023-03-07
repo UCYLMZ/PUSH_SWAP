@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   low_size_handler.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/06 20:14:27 by uyilmaz           #+#    #+#             */
+/*   Updated: 2023/03/06 20:14:30 by uyilmaz          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 int	is_list_sorted(t_list *list)
@@ -70,7 +82,7 @@ void	low_size_handler(t_list *stack_a)
 	if (t_data.size_a == 2)
 		sa(&t_data.stack_a);
 	if (is_list_sorted(t_data.stack_a))
-			return ;
+		return ;
 	else
 	{
 		stack_a = t_data.stack_a;

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   utils_bonus.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:03:47 by uyilmaz           #+#    #+#             */
-/*   Updated: 2023/02/27 10:03:48 by uyilmaz          ###   ########.fr       */
+/*   Updated: 2023/03/06 23:51:57 by uyilmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,7 @@ char	*ft_strjoin_v3(char *s1, char *s2)
 	}
 	if (!s2)
 		return (0);
-	result = malloc(sizeof(char) * (ft_strlen(s1)
-		+ ft_strlen(s2) + 2));
+	result = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (!result)
 		return (0);
 	i = -1;
@@ -86,9 +85,8 @@ int	ft_atoi(const char *str)
 		i++;
 	if (str[i] == '-' || str[i] == '+')
 	{
-		if (str[i] == '-')
+		if (str[i++] == '-')
 			sign *= -1;
-		i++;
 	}
 	while (str[i] >= '0' && str[i] <= '9' && str[i])
 	{

@@ -6,13 +6,12 @@
 /*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:03:13 by uyilmaz           #+#    #+#             */
-/*   Updated: 2023/02/27 15:36:46 by uyilmaz          ###   ########.fr       */
+/*   Updated: 2023/03/06 23:44:04 by uyilmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

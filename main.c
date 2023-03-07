@@ -6,7 +6,7 @@
 /*   By: uyilmaz <uyilmaz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:03:01 by uyilmaz           #+#    #+#             */
-/*   Updated: 2023/02/27 10:03:09 by uyilmaz          ###   ########.fr       */
+/*   Updated: 2023/03/07 05:47:38 by uyilmaz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	t_list	*stack_a;
 
 	if (ac == 1)
-		return (1);
+		return (0);
 	data_str = all_in_one(ac - 1, av + 1);
 	if (char_check(data_str))
 		return (1);

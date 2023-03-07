@@ -18,13 +18,13 @@ SRCS_BONUS =	./SRC/get_next_line.c 		\
 				utils_split_bonus.c			\
 				utils_swap_push_bonus.c
 
-CC = @gcc
+CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
-OBJS = $(SRCS: .c=.o)
+OBJS = $(SRCS:.c=.o)
 
-OBJS_BONUS = $(SRCS_BONUS: .c=.o)
+OBJS_BONUS = $(SRCS_BONUS:.c=.o)
 
 all: $(NAME)
 
@@ -39,10 +39,11 @@ $(NAME_BONUS) : $(SRCS_BONUS)
 $(NAME_BONUS) : $(OBJS_BONUS)
 
 clean:
-	@rm -rf $(NAME)
+	rm -rf *.o
 
 fclean: clean
-	@rm -rf $(NAME_BONUS)
+	rm -rf $(NAME_BONUS)
+	rm -rf $(NAME)
 
 re: clean all
 
